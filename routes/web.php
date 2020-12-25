@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('base');
+    return view('create');
 });
 
 Route::post('/info', 'App\Http\Controllers\InformationController@store')->name('info');

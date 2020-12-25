@@ -18,7 +18,7 @@ class InformationController extends BaseController
      */
     public function index()
     {
-        return view('info.create');
+        return view('create');
     }
 
     /**
@@ -28,7 +28,7 @@ class InformationController extends BaseController
      */
     public function create()
     {
-        return view('info.create');
+        return view('create');
     }
 
     /**
@@ -83,7 +83,7 @@ class InformationController extends BaseController
       $info->schedule_vc = $request->schedule_vc;
       $info->suggestion_medical_officer = $request->suggestion_medical_officer;
       $info->save();
-      return view('info.thank')->with('success', 'Contact saved!');    
+      return view('thank')->with('success', 'Contact saved!');    
     }
 
     /**
@@ -95,7 +95,7 @@ class InformationController extends BaseController
     public function list(Request $request)
     {
         $infos = Information::all();
-      return view('info.list', compact('infos'));    
+      return view('list', compact('infos'));    
     }
 
 
@@ -119,7 +119,7 @@ class InformationController extends BaseController
     public function edit($id)
     {
         $info = Information::findOrFail($id);
-        return view('info.edit', compact('info'));
+        return view('edit', compact('info'));
     }
 
     /**
@@ -155,7 +155,7 @@ class InformationController extends BaseController
           'suggestion_medical_officer' => 'required',
       ]);
       Information::whereId($id)->update($updateData);
-      return view('info.thank')->with('Information saved!', 'Information has been updated');    
+      return view('thank')->with('Information saved!', 'Information has been updated');    
     }
 
     /**
@@ -168,6 +168,6 @@ class InformationController extends BaseController
     {
       $info = Information::findOrFail($id);
       $info->delete();
-      return view('info.thank')->with('completed', 'Information has been deleted');   
+      return view('thank')->with('completed', 'Information has been deleted');   
     }
 }
